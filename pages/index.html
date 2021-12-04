@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Web3JS is needed to handle the conversion from wei to ETH, as JS can only handle 64 Bit numbers -->
+    <script src="https://cdn.rawgit.com/ethereum/web3.js/1.0/dist/web3.min.js"></script>
+    <script>
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider); //if metamask is running this keeps using metamask as the web3 provider
+        } else {
+            // set the provider you want from Web3.providers
+            web3 = new Web3(new Web3.providers.HttpProvider('https://rinkeby.infura.io/v3/'));
+        }
+    </script>
+    <title>Etherscan API Test</title>
+</head>
+<body>
+
+    <button onclick="btnClick()">Click Here to get Transaction Data for the first transaction</button>
+
+
+    <p class="txData"> 
+        <p id="txHash">Transaction ID: </p><br>
+        <p id="txTime">Time: </p><br>
+        <p id="txToken">Token Symbol: </p><br>
+        <p id="txTo">To: </p><br>
+        <p id="txFrom">From: </p><br>
+        <p id="txValue">Amount Transferred: </p><br>
+        <p>***********************************</p><br>
+    </p>
+
+
+    <p id="output">
+
+    </p>
